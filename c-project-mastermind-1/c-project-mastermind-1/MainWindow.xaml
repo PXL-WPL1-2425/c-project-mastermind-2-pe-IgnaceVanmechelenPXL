@@ -11,12 +11,13 @@
             <MenuItem Header="bestand" Name="mnuFile">
                 <MenuItem Name="mnuNewGame" Header="nieuw spel"/>
                 <MenuItem Name="mnuHighScore" Header="highscore"/>
-                <MenuItem Name="mnuClose" Header="afsluiten"/>
+                <MenuItem Name="mnuClose" Header="afsluiten" Click="mnuClose_Click"/>
             </MenuItem>
             <MenuItem Header="instellingen" Name="mnuSettings">
                 <MenuItem Header="aantal pogingen" Name="mnuAmountOfAttempts"/>
             </MenuItem>
         </Menu>
+
         <ComboBox Name="comboBoxOne" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="ComboBox_SelectionChanged"/>
         <ComboBox Name="comboBoxTwo" HorizontalAlignment="Left" Margin="220,40,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="ComboBox_SelectionChanged"/>
         <ComboBox Name="comboBoxThree" HorizontalAlignment="Left" Margin="400,40,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="ComboBox_SelectionChanged"/>
@@ -29,5 +30,7 @@
         <TextBox Name="secretCodeTextBox" HorizontalAlignment="Center" Margin="0,406,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360" IsEnabled="False" Visibility="Hidden"/>
         <ListBox x:Name="attemptsListBox" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="600" Margin="0,292,0,0" />
         <Label Content="strafpunten: 0" Name="scoreLabel" HorizontalAlignment="Center" Margin="0,261,0,0" VerticalAlignment="Top"/>
+        <Label Content="username: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,4,0,0"/>
+        <TextBox Name="userNameTextBox" HorizontalAlignment="Left" Margin="400,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

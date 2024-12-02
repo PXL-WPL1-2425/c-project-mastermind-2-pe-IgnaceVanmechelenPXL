@@ -24,6 +24,7 @@ namespace c_project_mastermind_1
         int attempts;
         int maxAttemps = 10;
         int score = 0;
+        private string userName;
         string[] colors = { "Red", "Yellow", "Orange", "White", "Green", "Blue" };
         List<string> secretCode = new List<string>();
         private DispatcherTimer timer = new DispatcherTimer();
@@ -143,29 +144,15 @@ namespace c_project_mastermind_1
                 if (codeCracked)
                 {
                     MessageBox.Show("Gefeliciteerd! Je hebt de code gekraakt!", "je hebt gewonnen!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    AskToPlayAgain();
+                    ResetGame();
                 }
             }
             else
             {
                 MessageBox.Show($"Game over! Je hebt de code niet gekraakt binnen 10 pogingen. De code was: {string.Join(", ", secretCode)}", "Game over!", MessageBoxButton.OK, MessageBoxImage.Error);
-                AskToPlayAgain();
-            }
-        }
-
-        private void AskToPlayAgain()
-        {
-            var result = MessageBox.Show("Wil je nog een keer spelen?", "Opnieuw spelen?", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
                 ResetGame();
             }
-            else
-            {
-                Application.Current.Shutdown();
-            }
         }
-
         private void ResetGame()
         {
             attempts = 0;
@@ -262,13 +249,27 @@ namespace c_project_mastermind_1
             Title = $"MasterMind - poging {attempts}/{maxAttemps}";
             timer.Start();
         }
-        private void WindowClosed(object sender, System.ComponentModel.CancelEventArgs e)
+        public void WindowClosed(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var result = MessageBox.Show("Weet je zeker dat je het spel wilt afsluiten? Je verliest je voortgang.",
                                          "Bevestigen", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void mnuClose_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Weet je zeker dat je het spel wilt afsluiten? Je verliest je voortgang.",
+                                         "Bevestigen", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                this.Close();
             }
             else
             {
