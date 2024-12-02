@@ -14,7 +14,7 @@
                 <MenuItem Name="mnuClose" Header="afsluiten" Click="mnuClose_Click"/>
             </MenuItem>
             <MenuItem Header="instellingen" Name="mnuSettings">
-                <MenuItem Header="aantal pogingen" Name="mnuAmountOfAttempts"/>
+                <MenuItem Header="aantal pogingen" Name="mnuAmountOfAttempts" Click="mnuAmountOfAttemps_Click"/>
             </MenuItem>
         </Menu>
 

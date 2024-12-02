@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.VisualBasic;
+using System.Diagnostics;
 using System.Reflection.Emit;
 using System.Text;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace c_project_mastermind_1
         private int randomIndex;
         private string randomColor;
         int attempts;
-        int maxAttemps = 10;
+        int maxAttemps;
         int score = 0;
         private string userName;
         string[] colors = { "Red", "Yellow", "Orange", "White", "Green", "Blue" };
@@ -281,6 +282,28 @@ namespace c_project_mastermind_1
         private void mnuHighScore_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"{highScores}");
+        }
+        private int mnuAmountOfAttemps_Click(object sender, RoutedEventArgs e)
+        {
+            string userMaxAttempts = Interaction.InputBox("geef het maximaal aantal pogingen op tussen 3 en 20", "Maximale pogingen", "10");
+            if (string.IsNullOrEmpty(userMaxAttempts) )
+            {
+                bool result = int.TryParse(userMaxAttempts, out int maxattempts);
+                if (result == true && maxAttemps >= 3 && maxAttemps <= 20)
+                {
+                    return maxAttemps;
+                }
+                else
+                {
+                    MessageBox.Show("foutieve invoer, voer een correcte waarde in");
+                    return 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("foutieve invoer, voer een correcte waarde in");
+                return 0;
+            }
         }
     }
 }
