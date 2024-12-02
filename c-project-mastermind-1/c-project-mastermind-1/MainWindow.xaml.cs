@@ -26,6 +26,7 @@ namespace c_project_mastermind_1
         int score = 0;
         private string userName;
         string[] colors = { "Red", "Yellow", "Orange", "White", "Green", "Blue" };
+        string[] highScores = new string[15];
         List<string> secretCode = new List<string>();
         private DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
@@ -144,6 +145,7 @@ namespace c_project_mastermind_1
                 if (codeCracked)
                 {
                     MessageBox.Show("Gefeliciteerd! Je hebt de code gekraakt!", "je hebt gewonnen!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    highScores.Append($"{userName} - {attempts} pogingen - {score}/100");
                     ResetGame();
                 }
             }
@@ -275,6 +277,10 @@ namespace c_project_mastermind_1
             {
                 Application.Current.Shutdown();
             }
+        }
+        private void mnuHighScore_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"{highScores}");
         }
     }
 }

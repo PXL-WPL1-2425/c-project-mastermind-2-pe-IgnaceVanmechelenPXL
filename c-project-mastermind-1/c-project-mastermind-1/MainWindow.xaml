@@ -10,7 +10,7 @@
         <Menu>
             <MenuItem Header="bestand" Name="mnuFile">
                 <MenuItem Name="mnuNewGame" Header="nieuw spel"/>
-                <MenuItem Name="mnuHighScore" Header="highscore"/>
+                <MenuItem Name="mnuHighScore" Header="highscore" Click="mnuHighScore_Click"/>
                 <MenuItem Name="mnuClose" Header="afsluiten" Click="mnuClose_Click"/>
             </MenuItem>
             <MenuItem Header="instellingen" Name="mnuSettings">
